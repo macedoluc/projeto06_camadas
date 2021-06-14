@@ -11,15 +11,16 @@ public class UsuarioDTO { //essa classe serve para selecionar quais informaçõe
 	//precisa fazer uma sobrecarga (3 construtres juntos)
 	
 	public UsuarioDTO() {
-		// TODO Auto-generated constructor stub
 	}
-	
-	public UsuarioDTO(Usuario usuario) { //esse construtor serve para pegar os dados do usuario que quer mostrar na tela
+
+	public UsuarioDTO(Usuario usuario) {
 		super();
 		this.id = usuario.getId();
 		this.nome = usuario.getNome();
 		this.email = usuario.getEmail();
-	} 
+	}
+
+
 
 	public Long getId() {
 		return id;
@@ -43,7 +44,10 @@ public class UsuarioDTO { //essa classe serve para selecionar quais informaçõe
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
+	} 
+
+
+	
 	
 	
 }

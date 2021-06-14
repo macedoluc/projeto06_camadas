@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Usuario {
@@ -18,6 +20,10 @@ public class Usuario {
 	private String perfil;
 	private String senha;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_endereco") //dizer qual a coluna que é chave estrangeira em usuário
+	private Endereco endereco;
+	
 	public Usuario() {
 		super();
 	}
@@ -29,6 +35,11 @@ public class Usuario {
 		this.email = email;
 		this.perfil = perfil;
 		this.senha = senha;
+	}
+
+	@Override
+	public String toString() {
+		return "Nome: " + nome + "\nEmail: " + email + "\nPerfil:" + perfil;
 	}
 
 	public Long getId() {
@@ -69,6 +80,14 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	@Override
